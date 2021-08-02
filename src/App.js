@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import Header from './Header.js';
+import Home from './Home.js';
+import Checkout from './Checkout.js';
+import Login from './Login.js';
+import Footer from './Footer.js';
+import Payment from './Payment';
+import Details from './Details.js';
+import { initialState, reducer } from './reducer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+            <Header></Header>
+        
+        <Switch>
+           <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/checkout">
+            <Checkout state={initialState}></Checkout>
+          </Route>
+          <Route path="/payment">
+            <Payment></Payment>
+          </Route>
+          <Route path="/more_details/:id" children={<Details></Details>}>
+          </Route>
+          <Route path="/">
+            <Home></Home>
+          </Route>
+        </Switch>
+      </div>
+        <Footer></Footer>
+    </Router>
   );
 }
 
