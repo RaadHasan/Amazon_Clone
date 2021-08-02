@@ -19,7 +19,7 @@
   },
   "scripts": {
     "predepoly": "npm run bulid",
-    "deploy": "gh-pages -d bulid",
+    "deploy": "gh-pages -d",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
